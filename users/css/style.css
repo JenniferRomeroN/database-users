@@ -1,0 +1,30 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* body{
+    background-color: green;
+} */
+.container{
+    margin-top: 5%;
+}
+
+.navbar{
+    background-color: #780000;
+}
+
+span{
+    color: #ffff;
+}
+
+.card{
+    padding: 10%;
+}
+
+.container-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,13 @@
+dashboard/
+img/
+xampp/
+webalizer/
+inventory/
+musicStore/
+vendor/
+applications.html/
+composer.json
+composer.lock
+favicon.ico
+applications.html
+bitnami.css
