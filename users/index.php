@@ -33,18 +33,18 @@ if (!$connection) {
     </nav>
     <div class="container">
         <div class="card">
-            <form name="users" method="post">
+            <form name="users" method="post" id="user">
                 <div class="form-group row">
                     <label name="name" class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="name" placeholder="Name..">
+                        <input type="text" class="form-control" id="name" placeholder="Name..">
                     </div>
                 </div>
         
                 <div class="form-group row">
                     <label name="lastName" class="col-sm-2 col-form-label">Last Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="lastName" placeholder="Last Name..">
+                        <input type="text" class="form-control" id="lastName" placeholder="Last Name..">
                     </div>
                 </div>
         
@@ -68,7 +68,8 @@ if (!$connection) {
                 </div>
         
                 <div class="form-group row container-button">
-                        <button type="submit" class="btn btn-primary button" name="submit">Submit</button>
+                <button type="submit" class="btn btn-primary button" name="submit" id="buttonSubmit">Submit</button>
+
                 </div>
 
 <script src="javascript/script.js"></script>
