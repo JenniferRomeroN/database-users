@@ -37,14 +37,14 @@ if (!$connection) {
                 <div class="form-group row">
                     <label name="name" class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="name" placeholder="Name..">
+                        <input type="text" class="form-control" id="name" name = "name"placeholder="Name..">
                     </div>
                 </div>
         
                 <div class="form-group row">
                     <label name="lastName" class="col-sm-2 col-form-label">Last Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="lastName" placeholder="Last Name..">
+                        <input type="text" class="form-control" id="lastName" name ="lastName" placeholder="Last Name..">
                     </div>
                 </div>
         
