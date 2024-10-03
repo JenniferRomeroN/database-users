@@ -1,35 +1,30 @@
-//llamamos al boton
 const submitButton = document.getElementById('buttonSubmit');
-//llamamos al formulario
 const form = document.getElementById('user');
 
-//hacemos el evento con el boton
-submitButton.addEventListener("click", (event) => {
-  //no envia el formulario directamente, hasta que se haga la validacion
-  event.preventDefault();
-  //llamamos la funcion y si tiene todos los campos se enviara con form.submit
-  if(validarFormulario()){
-    form.submit();
+// Escuchamos el evento submit del formulario directamente
+form.addEventListener("submit", (event) => {
+  // Evitamos que el formulario se envíe hasta que se valide
+  if (!validarFormulario()) {
+    event.preventDefault();  // Prevenir el envío si la validación falla
   }
 });
 
 function validarFormulario() {
-  // Obtener referencias a los elementos del formulario
   const nombre = document.getElementById('name');
   const apellido = document.getElementById('lastName');
 
-  // Verificar si los campos están vacíos
   if (nombre.value.trim() === "") {
-      alert("Please, complete allfields!");
-      nombre.focus(); // Colocar el cursor en el campo de nombre
-      return false; // Detener el envío del formulario
+    alert("Please, complete all fields!");
+    nombre.focus();
+    return false;
   }
 
   if (apellido.value.trim() === "") {
-      alert("Please, complete allfields!");
-      apellido.focus();
-      return false;
+    alert("Please, complete all fields!");
+    apellido.focus();
+    return false;
   }
-  // Si todos los campos están llenos, permitir el envío
+
+  // Si todo está bien, el formulario se enviará
   return true;
 }
