@@ -1,5 +1,6 @@
 <?php
 // Permitir todas las solicitudes de origen cruzado (para desarrollo local)
+//accede al recurso desde cualquier origen con *
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
