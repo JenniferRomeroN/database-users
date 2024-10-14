@@ -1,5 +1,6 @@
+       // Envío con AJAX (JavaScript)
 document.getElementById('user').addEventListener('submit', function(event) {
-    event.preventDefault();  // Evitar que el formulario se envíe de manera tradicional
+    event.preventDefault();  // Evitar envío tradicional
 
     // Capturar los datos del formulario
     const name = document.getElementById('name').value;
@@ -7,29 +8,46 @@ document.getElementById('user').addEventListener('submit', function(event) {
     const gender = document.getElementById('gender').value;
     const date = document.getElementById('date').value;
 
-    // Crear un objeto con los datos del formulario
-    const data = {
+    // Crear una instancia de XMLHttpRequest
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost/users/index.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    // Manejar la respuesta
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            const response = JSON.parse(xhr.responseText);
+            if (response.status === 'success') {
+                alert(response.message); // Mostrar mensaje de éxito
+            } else {
+                alert(response.message); // Mostrar mensaje de error detallado
+            }
+        } else {
+            alert('Error al enviar los datos');
+        }
+    };
+
+    if (!name || !lastName || !gender || !date) {
+        alert("Por favor, completa todos los campos.");
+        return;
+    }
+    
+
+// Enviar los datos como JSON
+    const data = JSON.stringify({
         name: name,
         lastName: lastName,
         gender: gender,
         date: date
-    };
-
-    // Hacer la solicitud fetch para enviar los datos al backend
-    fetch('http://localhost/users/index.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data) // Convertir el objeto a JSON
-    })
-    .then(response => response.text())  // Obtener respuesta como texto
-    .then(data => {
-        console.log('Success:', data); // Mostrar el éxito en la consola
-        alert('Datos enviados correctamente');
-    })
-    .catch(error => {
-        console.error('Error:', error); // Mostrar error en la consola
-        alert('Error al enviar los datos');
     });
+    console.log('Datos enviados con js'+data);
+    xhr.send(data);
+});
+
+// Envío tradicional con PHP
+document.getElementById('buttonSubmitPhp').addEventListener('click', function() {
+const form = document.getElementById('user');
+form.action = 'http://localhost/users/index.php';
+form.method = 'POST';
+form.submit(); // Enviar formulario de manera tradicional
 });
